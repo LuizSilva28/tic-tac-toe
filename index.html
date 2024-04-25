@@ -12,43 +12,35 @@
 <body>
 
     <h1>Jogo da Velha</h1>
-
-    <label for="player1">Player-1:</label>
-    <input type="text" id="player1" name="player1" placeholder="Jogue com o X">
+    <section>
+        <label for="player1">Player-1:</label>
+        <input type="text" id="player1" name="player1" placeholder="Jogue com o X">
     
-    <br><br>
+        <br><br>
 
-    <label for="player2">Player-2:</label>
-    <input type="text" id="player2" name="player2" placeholder="Jogue com a O" >
-    
+        <label for="player2">Player-2:</label>
+        <input type="text" id="player2" name="player2" placeholder="Jogue com a O" >
+    </section>  
     <br> <br>
-
+    
+    <section>
     <button class="iniciarJogo">Iniciar</button>
 
     <br><br>
 
-    <label for="jogadorDaVez">Sua vez:</label>
-    <input type="text" id="jogadorDaVez" disabled>
-
+    <div id="telaDaJogada"></div>
     <br> <br>
 
-    <button class="bnt" >O</button>
-    <button class="bnt" >O</button>
-    <button class="bnt" >O</button>
-    <br>
-    <button class="bnt" >O</button>
-    <button class="bnt" >O</button>
-    <button class="bnt" >O</button>
-    <br>
-    <button class="bnt" >O</button>
-    <button class="bnt" >O</button>
-    <button class="bnt" >O</button>
+    <ul id="tabela">
+
+    </ul>
+  
 
     <br><br>
 
     <label for="vencedor">Vencedor(a) :</label>
     <input type="text" id="vencedor" disabled>
-    
+    </section>
 
 
 

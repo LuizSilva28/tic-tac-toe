@@ -15,7 +15,44 @@ function jogadorDaVez(player){
     return jogador.value;
 }
 
-  
+const div = document.getElementById('telaDaJogada');
+
+var labelTelaDaJogada = document.createElement("label");
+labelTelaDaJogada.htmlFor = 'jogadorDaVez'
+labelTelaDaJogada.innerHTML = "Jogador da vez: ";
+
+div.appendChild(labelTelaDaJogada);
+
+var inputTelaDaJogada = document.createElement("input");
+inputTelaDaJogada.type = 'text';
+inputTelaDaJogada.id = 'jogadorDaVez';
+inputTelaDaJogada.disabled = true;
+
+div.appendChild(inputTelaDaJogada);
+
+
+
+
+// CONSTRUINDO A TEBELA 
+
+const tabela = document.querySelector('#tabela');
+ 
+    
+for (i = 0; i < 3; i++) {
+    const li = document.createElement('li');
+    li.classList.add('linha');
+    li.style.listStyleType = 'none';
+    
+
+    for (j = 0; j < 3; j++) {
+        
+    const area = document.createElement('button');
+    area.classList.add('bnt');
+    area.setAttribute('placeholder', ' X ')
+    li.appendChild(area);
+    }
+    tabela.appendChild(li);
+}
 
 function marcadorDeJogada (player1, player2){
     jogadorDaVez(player1)
@@ -27,8 +64,6 @@ function marcadorDeJogada (player1, player2){
     document.querySelectorAll('.bnt').forEach(function (bntClicado){
         bntClicado.addEventListener('click', function(){
             console.log('Botão clicado com sucesso!')
-
-            
 
             if (playerQueJogou === player1){
 
@@ -57,3 +92,8 @@ function marcadorDeJogada (player1, player2){
     
 }
 
+//criar uma função para determinar vencedor se baseando no valores dos botões, buscar pelos valores dos botões da tabela e a partir desses valores validar com um if ou switch as condições.
+
+function derterminarVencedor (player1, player2){
+ 
+}

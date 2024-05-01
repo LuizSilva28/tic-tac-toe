@@ -1,3 +1,12 @@
+const inputs = document.querySelectorAll(".player").forEach(function (input) {
+  input.addEventListener('click', function(e) {
+    e.preventDefault();
+    input.setAttribute('maxLength', '10');
+    input.style.outline = 'none';
+
+  });
+});
+
 const bntIniciar = document.querySelector(".iniciarJogo");
 bntIniciar.addEventListener("click", function (e){
     e.preventDefault();
@@ -5,6 +14,7 @@ bntIniciar.addEventListener("click", function (e){
     const player2 = document.getElementById('player2').value;
     marcadorDeJogada(player1, player2)
     bntIniciar.setAttribute('disabled','true');
+    bntIniciar.id= 'blockIniciarJogo';
 });
 
 function jogadorDaVez(player){
@@ -18,6 +28,7 @@ const div = document.getElementById('telaDaJogada');
 const labelTelaDaJogada = document.createElement("label");
 labelTelaDaJogada.htmlFor = 'jogadorDaVez'
 labelTelaDaJogada.innerHTML = "Jogador da vez: ";
+labelTelaDaJogada.classList = "textJogadorDaVez";
 
 div.appendChild(labelTelaDaJogada);
 
@@ -25,6 +36,9 @@ const inputTelaDaJogada = document.createElement("input");
 inputTelaDaJogada.type = 'text';
 inputTelaDaJogada.id = 'jogadorDaVez';
 inputTelaDaJogada.disabled = true;
+inputTelaDaJogada.placeholder = "...";
+inputTelaDaJogada.classList = 'jogadorDaVez';
+
 
 div.appendChild(inputTelaDaJogada);
 
@@ -59,6 +73,7 @@ function marcadorDeJogada (player1, player2){
     
 
     document.querySelectorAll('.bnt').forEach(function (bntClicado){
+        
         bntClicado.addEventListener('click', function(){           
 
             if (playerQueJogou === player1){

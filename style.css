@@ -1,0 +1,53 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-color: rgb(17, 6, 6);
+}
+#intro{
+    display: flex;
+    align-items: end;
+}
+
+#titulo{
+    font-size: 3em;
+    color: rgb(255, 255, 255);
+    text-align: center;
+    margin-top: 2rem;
+}
+#espacoDeMovimento{
+    width: 12rem;
+    height: 4rem;
+}
+
+#hashtagIcon{
+    position: relative;
+    display: flex;
+    background-image: url("./public/hashtagIcon.png");
+    background-size: contain;
+    margin-left: 1rem;
+    width: 6rem;
+    height: 4rem;
+    background-repeat: no-repeat;
+    animation: mymove 4s infinite;
+    animation-direction: alternate;
+   
+    
+}
+
+@keyframes mymove {
+    0%   { left: 0px;}
+    50%  { left: 2rem; }
+    100% { left: 0px;}
+}
+}
+
+

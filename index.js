@@ -32,6 +32,9 @@ labelTelaDaJogada.classList = "textJogadorDaVez";
 
 div.appendChild(labelTelaDaJogada);
 
+const br = document.createElement("br");
+div.appendChild(br);
+
 const inputTelaDaJogada = document.createElement("input");
 inputTelaDaJogada.type = 'text';
 inputTelaDaJogada.id = 'jogadorDaVez';
@@ -77,13 +80,15 @@ function marcadorDeJogada (player1, player2){
         bntClicado.addEventListener('click', function(){           
 
             if (playerQueJogou === player1){
+            bntClicado.classList.add("colorPlayer1");
             bntClicado.innerHTML = " X ";            
             jogadorDaVez(player2)            
             playerQueJogou = jogadorDaVez(player2)
             i++
             
 
-        } else if (playerQueJogou === player2){           
+        } else if (playerQueJogou === player2){  
+            bntClicado.classList.add("colorPlayer2");
             bntClicado.innerHTML = " O ";              
             jogadorDaVez(player1)           
             playerQueJogou = jogadorDaVez(player1)
@@ -140,14 +145,18 @@ let a , b = 0, c = 0;
     // Para vitórias em linhas
 for ( a = 0; a < dadosTabela.length; a += 3)
 {
+    
     b = a + 1;
     c = a + 2;
+    console.log(a,b,c);
     if (dadosTabela[a] === " X " && dadosTabela[b] === " X " && dadosTabela[c] === " X ")
     {
+        
         vencedor.value =`${player1} Venceu a partida!`;  
     } 
     else if (dadosTabela[a] === " O " && dadosTabela[b] === " O " && dadosTabela[c] === " O ")
     {
+        console.log('estou funcionando!')
         vencedor.value =`${player2} Venceu a partida!`;  
     }   
 }
@@ -180,6 +189,8 @@ for ( a = 0; a <= 2; a+=2)
         vencedor.value =`${player2} Venceu a partida!`;  
     }  
 }    
+
+console.log(dadosTabela);
     
 
 /*

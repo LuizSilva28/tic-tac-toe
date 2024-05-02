@@ -7,8 +7,8 @@
     margin: 0;
     padding: 0;
     font-family: "Kanit", sans-serif;
-  font-weight: 700;
-  font-style: italic;
+    font-weight: 700;
+    font-style: italic;
 
   
 
@@ -24,6 +24,10 @@ body{
     color: rgb(255, 255, 255);
 }
 #jogo{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     width: 50%;
 }
 
@@ -35,6 +39,7 @@ body{
     margin-bottom: 4rem;
 }
 #titulo{
+    width: 100%;
     position: relative;
     padding: 3%;
     font-size:4rem;
@@ -95,6 +100,13 @@ body{
     
 }
 
+#inicioDoJogo{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 .iniciarJogo{
     position: relative;
     font-size: 2rem;
@@ -138,16 +150,38 @@ body{
     color: red;
 }
 
-.linha{
-    max-height:  3rem;
+#tabela{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
 }
 
+.linha{
+    display: flex;
+    padding: 1px;
+    height:  6rem;
+    margin: 10px;
+}
 .bnt{
-    color: aqua;
     width: 6rem;
     height: 6rem;
-    margin: .7rem;
+    margin: 10px;
     background-color: transparent;
-    border: 2px outset  rgba(156, 0, 252, 0.76);
-    ;
+    border-width: 4px;
+    border-color: rgba(156, 0, 252, 0.76);
+    color: aliceblue;
+    font-size: 3rem;
+    
+}
+.bnt::placeholder{
+    color:rgb(255, 255, 255);
+}
+
+.colorPlayer1{
+    color: rgb(22, 205, 229);
+}
+
+.colorPlayer2{  
+    color: rgb(119, 255, 0);
 }

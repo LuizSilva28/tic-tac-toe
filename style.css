@@ -185,3 +185,10 @@ body{
 .colorPlayer2{  
     color: rgb(119, 255, 0);
 }
+
+.vencedorPlayer1{
+    border-color: rgba(22, 205, 229, 0.76);
+}
+.vencedorPlayer2{
+    border-color: rgba(119, 255, 0, 0.76);
+}

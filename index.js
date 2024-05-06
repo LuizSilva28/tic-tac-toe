@@ -52,7 +52,8 @@ div.appendChild(inputTelaDaJogada);
 
 const tabela = document.querySelector('#tabela');
  
-    
+let a = 0, b = 0, c = 0;    
+
 for (i = 0; i < 3; i++) {
     const li = document.createElement('li');
     li.classList.add('linha');
@@ -63,8 +64,10 @@ for (i = 0; i < 3; i++) {
         
     const area = document.createElement('button');
     area.classList.add('bnt');
+    area.id = `areaDoVencedor-${a}`
     area.setAttribute('placeholder', ' X ')
     li.appendChild(area);
+    a++
     }
     tabela.appendChild(li);
 }
@@ -141,24 +144,34 @@ function derterminarVencedor (player1, player2){
         4 - determinar as sequências e padrões que determinam o vencedor 
 */    
 
-let a , b = 0, c = 0;
+
     // Para vitórias em linhas
 for ( a = 0; a < dadosTabela.length; a += 3)
 {
     
     b = a + 1;
     c = a + 2;
-    console.log(a,b,c);
+    const areaDestacada1 = document.querySelector(`#areaDoVencedor-${a}`)
+    const areaDestacada2 = document.querySelector(`#areaDoVencedor-${b}`)
+    const areaDestacada3 = document.querySelector(`#areaDoVencedor-${c}`);
+    
+
     if (dadosTabela[a] === " X " && dadosTabela[b] === " X " && dadosTabela[c] === " X ")
     {
         vencedor.value =`${player1} Venceu a partida!`;  
-        bloqueartabela();
+        areaDestacada1.classList.add("vencedorPlayer1");
+        areaDestacada2.classList.add("vencedorPlayer1");
+        areaDestacada3.classList.add("vencedorPlayer1");
         
     } 
     else if (dadosTabela[a] === " O " && dadosTabela[b] === " O " && dadosTabela[c] === " O ")
     {
         vencedor.value =`${player2} Venceu a partida!`;
-        bloqueartabela();
+        areaDestacada1.classList.add("vencedorPlayer2");
+        areaDestacada2.classList.add("vencedorPlayer2");
+        areaDestacada3.classList.add("vencedorPlayer2");
+
+
     }   
 }
     // Para vitórias em colunas  
@@ -166,16 +179,25 @@ for ( a = 0; a < dadosTabela.length; a++)
 {        
     b = a + 3; 
     c = a + 6; 
+    const areaDestacada1 = document.querySelector(`#areaDoVencedor-${a}`)
+    const areaDestacada2 = document.querySelector(`#areaDoVencedor-${b}`)
+    const areaDestacada3 = document.querySelector(`#areaDoVencedor-${c}`);
+
     if (dadosTabela[a] === " X " && dadosTabela[b] === " X " && dadosTabela[c] === " X ")
     {
+       
         vencedor.value =`${player1} Venceu a partida!`;  
-        
-        bloqueartabela();
+        areaDestacada1.classList.add("vencedorPlayer1");
+        areaDestacada2.classList.add("vencedorPlayer1");
+        areaDestacada3.classList.add("vencedorPlayer1");
     } 
     else if (dadosTabela[a] === " O " && dadosTabela[b] === " O " && dadosTabela[c] === " O ")
     {
-        vencedor.value =`${player2} Venceu a partida!`;  
-        bloqueartabela();
+        vencedor.value =`${player2} Venceu a partida!`; 
+        areaDestacada1.classList.add("vencedorPlayer2");
+        areaDestacada2.classList.add("vencedorPlayer2");
+        areaDestacada3.classList.add("vencedorPlayer2");
+        
     }  
 }
     // Para vitórias em diagonias
@@ -184,15 +206,26 @@ for ( a = 0; a <= 2; a+=2)
     a != 2 ?  a = 0 : a = 2;
     b = 4;
     c != 8 ?  c = 8 : c = 6;
+
+    const areaDestacada1 = document.querySelector(`#areaDoVencedor-${a}`)
+    const areaDestacada2 = document.querySelector(`#areaDoVencedor-${b}`)
+    const areaDestacada3 = document.querySelector(`#areaDoVencedor-${c}`);
+
     if (dadosTabela[a] === " X " && dadosTabela[b] === " X " && dadosTabela[c] === " X ")
     {
         vencedor.value =`${player1} Venceu a partida!`;  
-        bloqueartabela();
+        areaDestacada1.classList.add("vencedorPlayer1");
+        areaDestacada2.classList.add("vencedorPlayer1");
+        areaDestacada3.classList.add("vencedorPlayer1");
+        
     } 
     else if (dadosTabela[a] === " O " && dadosTabela[b] === " O " && dadosTabela[c] === " O ")
     {
         vencedor.value =`${player2} Venceu a partida!`;  
-        bloqueartabela();
+        areaDestacada1.classList.add("vencedorPlayer2");
+        areaDestacada2.classList.add("vencedorPlayer2");
+        areaDestacada3.classList.add("vencedorPlayer2");
+        
     }  
 }    
 

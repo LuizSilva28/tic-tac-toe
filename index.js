@@ -151,13 +151,14 @@ for ( a = 0; a < dadosTabela.length; a += 3)
     console.log(a,b,c);
     if (dadosTabela[a] === " X " && dadosTabela[b] === " X " && dadosTabela[c] === " X ")
     {
-        
         vencedor.value =`${player1} Venceu a partida!`;  
+        bloqueartabela();
+        
     } 
     else if (dadosTabela[a] === " O " && dadosTabela[b] === " O " && dadosTabela[c] === " O ")
     {
-        console.log('estou funcionando!')
-        vencedor.value =`${player2} Venceu a partida!`;  
+        vencedor.value =`${player2} Venceu a partida!`;
+        bloqueartabela();
     }   
 }
     // Para vitórias em colunas  
@@ -168,10 +169,13 @@ for ( a = 0; a < dadosTabela.length; a++)
     if (dadosTabela[a] === " X " && dadosTabela[b] === " X " && dadosTabela[c] === " X ")
     {
         vencedor.value =`${player1} Venceu a partida!`;  
+        
+        bloqueartabela();
     } 
     else if (dadosTabela[a] === " O " && dadosTabela[b] === " O " && dadosTabela[c] === " O ")
     {
         vencedor.value =`${player2} Venceu a partida!`;  
+        bloqueartabela();
     }  
 }
     // Para vitórias em diagonias
@@ -183,16 +187,28 @@ for ( a = 0; a <= 2; a+=2)
     if (dadosTabela[a] === " X " && dadosTabela[b] === " X " && dadosTabela[c] === " X ")
     {
         vencedor.value =`${player1} Venceu a partida!`;  
+        bloqueartabela();
     } 
     else if (dadosTabela[a] === " O " && dadosTabela[b] === " O " && dadosTabela[c] === " O ")
     {
         vencedor.value =`${player2} Venceu a partida!`;  
+        bloqueartabela();
     }  
 }    
 
+// Bloquea a tabela quando um jogador vencer
 console.log(dadosTabela);
     
+    if(vencedor.value === `${player1} Venceu a partida!` || vencedor.value === `${player2} Venceu a partida!` ){
+        const dados = dadosTabela.filter(function(dados){
+            dados = ""
+            console.log('estou funcionando!')
+        });
 
+        document.querySelectorAll(".bnt").innerHTML = dados;
+
+        
+    }
 /*
      if (dadosTabela[3] === " X " && dadosTabela[4] === " X " && dadosTabela[5] === " X " )
     {       

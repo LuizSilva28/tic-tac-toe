@@ -118,131 +118,131 @@ function derterminarVencedor (player1, player2){
             dadosTabela.push(bnt.innerHTML);
     });
     const vencedor = document.querySelector("#vencedor"); 
-/*DOIS PROBLEMAS : 
-    1 - mudar forEach para for, 
-    pois forEach chama a função de comparação 9 vezes para a mesma compraração, 
-    toda vez que um botão é clicado, preciso que seja feita uma única vez.
+    /*DOIS PROBLEMAS : 
+        1 - mudar forEach para for, 
+        pois forEach chama a função de comparação 9 vezes para a mesma compraração, 
+        toda vez que um botão é clicado, preciso que seja feita uma única vez.
 
-    2- mudar o indice que está sendo comparado,
-    atualmente estou escrevendo indice por indice para as comparações,
-    isso tem de ser feito de forma dinâmica sempre que eu chamar a função ela faz a comparação para todos os indices 
-*/
+        2- mudar o indice que está sendo comparado,
+        atualmente estou escrevendo indice por indice para as comparações,
+        isso tem de ser feito de forma dinâmica sempre que eu chamar a função ela faz a comparação para todos os indices 
+    */
 
     
-/*  O que está fazendo: A cada botão que é clicado na tabela, 
-    faz um push do conteúdo do botão para dentro de um array
+    /*  O que está fazendo: A cada botão que é clicado na tabela, 
+        faz um push do conteúdo do botão para dentro de um array
 
-    O que preciso que faça para determinar o vencedor: 
-        1 - Todos os meu valores de referência vão estar
-            sendo adicionados um a um á medida que os botões vão sendo clicados, 
-            no Array dadosTabela;
-        2 - Preciso acessar os valores do array;
-        3 - Tendo o acesso, preciso utilizar destes valores para verificar/validar
-            possíveis sequências/combinações ou padrões, 
-            para determinar o vencedor, ou seja, há a necessidade comparar valores de indices específicos do meu array, 
-            para identificar as sequências/ padrões;
-        4 - determinar as sequências e padrões que determinam o vencedor 
-*/    
+        O que preciso que faça para determinar o vencedor: 
+         1 - Todos os meu valores de referência vão estar
+                sendo adicionados um a um á medida que os botões vão sendo clicados, 
+                no Array dadosTabela;
+            2 - Preciso acessar os valores do array;
+            3 - Tendo o acesso, preciso utilizar destes valores para verificar/validar
+                possíveis sequências/combinações ou padrões, 
+                para determinar o vencedor, ou seja, há a necessidade comparar valores de indices específicos do meu array, 
+                para identificar as sequências/ padrões;
+            4 - determinar as sequências e padrões que determinam o vencedor 
+    */    
 
 
     // Para vitórias em linhas
-for ( a = 0; a < dadosTabela.length; a += 3)
-{
-    
-    b = a + 1;
-    c = a + 2;
-    const areaDestacada1 = document.querySelector(`#areaDoVencedor-${a}`)
-    const areaDestacada2 = document.querySelector(`#areaDoVencedor-${b}`)
-    const areaDestacada3 = document.querySelector(`#areaDoVencedor-${c}`);
-    
-
+    for ( a = 0; a < dadosTabela.length; a += 3)
+    {
+        b = a + 1;
+        c = a + 2;
+        const areaDestacada1 = document.querySelector(`#areaDoVencedor-${a}`)
+        const areaDestacada2 = document.querySelector(`#areaDoVencedor-${b}`)
+        const areaDestacada3 = document.querySelector(`#areaDoVencedor-${c}`);
     if (dadosTabela[a] === " X " && dadosTabela[b] === " X " && dadosTabela[c] === " X ")
     {
-        vencedor.value =`${player1} Venceu a partida!`;  
+        vencedor.value = player1;  
         areaDestacada1.classList.add("vencedorPlayer1");
         areaDestacada2.classList.add("vencedorPlayer1");
         areaDestacada3.classList.add("vencedorPlayer1");
-        
     } 
     else if (dadosTabela[a] === " O " && dadosTabela[b] === " O " && dadosTabela[c] === " O ")
     {
-        vencedor.value =`${player2} Venceu a partida!`;
+        vencedor.value = player2;
         areaDestacada1.classList.add("vencedorPlayer2");
         areaDestacada2.classList.add("vencedorPlayer2");
         areaDestacada3.classList.add("vencedorPlayer2");
-
-
     }   
-}
+    }
     // Para vitórias em colunas  
-for ( a = 0; a < dadosTabela.length; a++)
-{        
-    b = a + 3; 
-    c = a + 6; 
-    const areaDestacada1 = document.querySelector(`#areaDoVencedor-${a}`)
-    const areaDestacada2 = document.querySelector(`#areaDoVencedor-${b}`)
-    const areaDestacada3 = document.querySelector(`#areaDoVencedor-${c}`);
+    for ( a = 0; a < dadosTabela.length; a++)
+    {        
+        b = a + 3; 
+        c = a + 6; 
+        const areaDestacada1 = document.querySelector(`#areaDoVencedor-${a}`)
+        const areaDestacada2 = document.querySelector(`#areaDoVencedor-${b}`)
+        const areaDestacada3 = document.querySelector(`#areaDoVencedor-${c}`);
 
-    if (dadosTabela[a] === " X " && dadosTabela[b] === " X " && dadosTabela[c] === " X ")
-    {
-       
-        vencedor.value =`${player1} Venceu a partida!`;  
-        areaDestacada1.classList.add("vencedorPlayer1");
-        areaDestacada2.classList.add("vencedorPlayer1");
-        areaDestacada3.classList.add("vencedorPlayer1");
-    } 
-    else if (dadosTabela[a] === " O " && dadosTabela[b] === " O " && dadosTabela[c] === " O ")
-    {
-        vencedor.value =`${player2} Venceu a partida!`; 
-        areaDestacada1.classList.add("vencedorPlayer2");
-        areaDestacada2.classList.add("vencedorPlayer2");
-        areaDestacada3.classList.add("vencedorPlayer2");
-        
-    }  
-}
+        if (dadosTabela[a] === " X " && dadosTabela[b] === " X " && dadosTabela[c] === " X ")
+        {       
+            vencedor.value =`${player1} Venceu a partida!`;  
+            areaDestacada1.classList.add("vencedorPlayer1");
+            areaDestacada2.classList.add("vencedorPlayer1");
+            areaDestacada3.classList.add("vencedorPlayer1");
+        } 
+        else if (dadosTabela[a] === " O " && dadosTabela[b] === " O " && dadosTabela[c] === " O ")
+        {
+            vencedor.value =`${player2} Venceu a partida!`; 
+            areaDestacada1.classList.add("vencedorPlayer2");
+            areaDestacada2.classList.add("vencedorPlayer2");
+            areaDestacada3.classList.add("vencedorPlayer2")
+        }  
+    }
     // Para vitórias em diagonias
-for ( a = 0; a <= 2; a+=2)
-{
-    a != 2 ?  a = 0 : a = 2;
-    b = 4;
-    c != 8 ?  c = 8 : c = 6;
-
-    const areaDestacada1 = document.querySelector(`#areaDoVencedor-${a}`)
-    const areaDestacada2 = document.querySelector(`#areaDoVencedor-${b}`)
-    const areaDestacada3 = document.querySelector(`#areaDoVencedor-${c}`);
-
-    if (dadosTabela[a] === " X " && dadosTabela[b] === " X " && dadosTabela[c] === " X ")
+    for ( a = 0; a <= 2; a+=2)
     {
-        vencedor.value =`${player1} Venceu a partida!`;  
-        areaDestacada1.classList.add("vencedorPlayer1");
-        areaDestacada2.classList.add("vencedorPlayer1");
-        areaDestacada3.classList.add("vencedorPlayer1");
-        
-    } 
-    else if (dadosTabela[a] === " O " && dadosTabela[b] === " O " && dadosTabela[c] === " O ")
-    {
-        vencedor.value =`${player2} Venceu a partida!`;  
-        areaDestacada1.classList.add("vencedorPlayer2");
-        areaDestacada2.classList.add("vencedorPlayer2");
-        areaDestacada3.classList.add("vencedorPlayer2");
-        
-    }  
-}    
+        a != 2 ?  a = 0 : a = 2;
+        b = 4;
+        c != 8 ?  c = 8 : c = 6;
 
+        const areaDestacada1 = document.querySelector(`#areaDoVencedor-${a}`)
+        const areaDestacada2 = document.querySelector(`#areaDoVencedor-${b}`)
+        const areaDestacada3 = document.querySelector(`#areaDoVencedor-${c}`);
+
+        if (dadosTabela[a] === " X " && dadosTabela[b] === " X " && dadosTabela[c] === " X ")
+        {
+            vencedor.value =`${player1} Venceu a partida!`;  
+            areaDestacada1.classList.add("vencedorPlayer1");
+            areaDestacada2.classList.add("vencedorPlayer1");
+            areaDestacada3.classList.add("vencedorPlayer1");
+            bloquearTabela(player1)
+        
+        } 
+        else if (dadosTabela[a] === " O " && dadosTabela[b] === " O " && dadosTabela[c] === " O ")
+        {
+            vencedor.value =`${player2} Venceu a partida!`;  
+            areaDestacada1.classList.add("vencedorPlayer2");
+            areaDestacada2.classList.add("vencedorPlayer2");
+            areaDestacada3.classList.add("vencedorPlayer2");
+            bloquearTabela(player2)
+
+        }  
+    }    
+
+    if(vencedor.value === player2 ||  vencedor.value === player1)
+    {
+        bloquearTabela(dadosTabela)
+    }
+
+}
 // Bloquea a tabela quando um jogador vencer
-console.log(dadosTabela);
+    function bloquearTabela (dadosTabela)
+    {
+            const myDados = dadosTabela.filter(function(dados){
+                dados ===  ' X '
+                return dados
+            });
+            console.log(myDados)
     
-    if(vencedor.value === `${player1} Venceu a partida!` || vencedor.value === `${player2} Venceu a partida!` ){
-        const dados = dadosTabela.filter(function(dados){
-            dados = ""
-            console.log('estou funcionando!')
-        });
-
-        document.querySelectorAll(".bnt").innerHTML = dados;
-
-        
+            //document.querySelectorAll(".bnt").innerHTML = dados;
     }
 /*
+})
+    
      if (dadosTabela[3] === " X " && dadosTabela[4] === " X " && dadosTabela[5] === " X " )
     {       
         vencedor.value = `${player1} Venceu a partida!`;
@@ -305,5 +305,3 @@ console.log(dadosTabela);
         vencedor.value = `${player2} Venceu a partida!`;
     }
 */
-
-}

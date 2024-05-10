@@ -118,32 +118,6 @@ function derterminarVencedor (player1, player2){
             dadosTabela.push(bnt.innerHTML);
     });
     const vencedor = document.querySelector("#vencedor"); 
-    /*DOIS PROBLEMAS : 
-        1 - mudar forEach para for, 
-        pois forEach chama a função de comparação 9 vezes para a mesma compraração, 
-        toda vez que um botão é clicado, preciso que seja feita uma única vez.
-
-        2- mudar o indice que está sendo comparado,
-        atualmente estou escrevendo indice por indice para as comparações,
-        isso tem de ser feito de forma dinâmica sempre que eu chamar a função ela faz a comparação para todos os indices 
-    */
-
-    
-    /*  O que está fazendo: A cada botão que é clicado na tabela, 
-        faz um push do conteúdo do botão para dentro de um array
-
-        O que preciso que faça para determinar o vencedor: 
-         1 - Todos os meu valores de referência vão estar
-                sendo adicionados um a um á medida que os botões vão sendo clicados, 
-                no Array dadosTabela;
-            2 - Preciso acessar os valores do array;
-            3 - Tendo o acesso, preciso utilizar destes valores para verificar/validar
-                possíveis sequências/combinações ou padrões, 
-                para determinar o vencedor, ou seja, há a necessidade comparar valores de indices específicos do meu array, 
-                para identificar as sequências/ padrões;
-            4 - determinar as sequências e padrões que determinam o vencedor 
-    */    
-
 
     // Para vitórias em linhas
     for ( a = 0; a < dadosTabela.length; a += 3)
@@ -228,15 +202,23 @@ function derterminarVencedor (player1, player2){
         bloquearTabela(dadosTabela)
     }
 
+
+    // Para empates
+    if (dadosTabela.length === 9 && vencedor.value === "")
+    {
+        vencedor.value = "Empate";
+    }
+
+
 }
 // Bloquea a tabela quando um jogador vencer
     function bloquearTabela (dadosTabela)
     {
             const myDados = dadosTabela.filter(function(dados){
-                dados ===  ' X '
-                return dados
+                return  dados ===  ''
+                
             });
-            console.log(myDados)
+            
     
             //document.querySelectorAll(".bnt").innerHTML = dados;
     }

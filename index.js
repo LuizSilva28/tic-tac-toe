@@ -14,6 +14,29 @@ bntIniciar.addEventListener("click", function (e){
     bntIniciar.setAttribute('disabled','true');
     bntIniciar.id= 'blockIniciarJogo';
 });
+
+const bntReiniciar = document.querySelector('#reiniciar');
+bntReiniciar.addEventListener("click", function (e){
+    e.preventDefault();
+    const player1 = document.getElementById('player1');
+    player1.value = '';
+    const player2 = document.getElementById('player2');
+    player2.value = '';
+
+    const bntIniciar = document.querySelector(".iniciarJogo");
+    bntIniciar.removeAttribute('disabled');
+    bntIniciar.removeAttribute('id');
+
+    const jogadorDaVez = document.querySelector('#jogadorDaVez');
+    jogadorDaVez.value = '';
+
+    const bntsTabela = document.querySelectorAll('.bnt');
+    bntsTabela.forEach(function(bnt){
+        bnt.removeAttribute('disabled');
+        bnt.innerHTML = '';
+    })
+});
+
 function jogadorDaVez(player){
     var jogador = document.querySelector("#jogadorDaVez");
     jogador.value = player;
@@ -21,21 +44,21 @@ function jogadorDaVez(player){
 }
 
 const div = document.getElementById('telaDaJogada');
-const labelTelaDaJogada = document.createElement("label");
+const labelTelaDaJogada = document.createElement('label');
 labelTelaDaJogada.htmlFor = 'jogadorDaVez'
-labelTelaDaJogada.innerHTML = "Jogador da vez: ";
-labelTelaDaJogada.classList = "textJogadorDaVez";
+labelTelaDaJogada.innerHTML = 'Jogador da vez:' ;
+labelTelaDaJogada.classList = 'textJogadorDaVez';
 
 div.appendChild(labelTelaDaJogada);
 
-const br = document.createElement("br");
+const br = document.createElement('br');
 div.appendChild(br);
 
-const inputTelaDaJogada = document.createElement("input");
+const inputTelaDaJogada = document.createElement('input');
 inputTelaDaJogada.type = 'text';
 inputTelaDaJogada.id = 'jogadorDaVez';
 inputTelaDaJogada.disabled = true;
-inputTelaDaJogada.placeholder = "...";
+inputTelaDaJogada.placeholder = '...';
 inputTelaDaJogada.classList = 'jogadorDaVez';
 
 div.appendChild(inputTelaDaJogada);

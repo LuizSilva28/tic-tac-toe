@@ -143,11 +143,11 @@ body{
     border: none;
     font-size: 2rem;
     background-color: transparent;
-    color: red
+    color: rgb(255, 255, 255)
 }
 
 .jogadorDaVez::placeholder {
-    color: red;
+    color: rgb(255, 255, 255);
 }
 
 #tabela{
@@ -192,3 +192,22 @@ body{
 .vencedorPlayer2{
     border-color: rgba(119, 255, 0, 0.76);
 }
+
+.vencedorLabel{
+    color: rgb(239, 195, 35);
+    font-size: 2rem;
+    
+}
+
+.vencedorInput{
+    text-align: center;
+    font-size: 2em;
+    color: rgb(255, 255, 255);
+    width: 18rem;
+    height: 4rem;
+    background-color: transparent;
+    border-radius: 5px;
+    border: 2px solid rgb(239, 195, 35);
+    margin-bottom: 5rem;
+}
+
